@@ -1,0 +1,8 @@
+{{#each sortedQuestions as |question index|}}
+  {{questions-list/question-message question=question renderIndex=index}}
+{{else}}
+  <div class="no-chirps">
+    <div class="icon"></div>
+    <p>There are no questions to display.</p>
+  </div>
+{{/each}}

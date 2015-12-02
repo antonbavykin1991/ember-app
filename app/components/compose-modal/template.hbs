@@ -1,0 +1,7 @@
+<h6>Post question</h6>
+
+{{textarea value=text}}
+{{#if showError}}
+<p>{{errors.text}}<br/></p>
+{{/if}}
+<button class="chirp" {{action "postQuestion"}}>Post Question</button>

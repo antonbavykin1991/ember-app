@@ -1,0 +1,8 @@
+{{#each answers as |answer|}}
+  {{answers-list/answer-message answer=answer}}
+{{else}}
+  <div class="no-chirps">
+    <div class="icon"></div>
+    <p>There are no answers to display.</p>
+  </div>
+{{/each}}

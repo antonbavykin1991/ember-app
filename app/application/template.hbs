@@ -1,0 +1,23 @@
+<header>
+  <div class="page-container">
+    <div class="logo"></div>
+    <nav>
+      {{#link-to "index"}}Home{{/link-to}}
+      {{#link-to "question"}}Questions{{/link-to}}
+      {{#link-to "protected"}}Profile{{/link-to}}
+      {{#if session.isAuthenticated}}
+        <a id="logout" {{ action 'invalidateSession' }}>Logout</a>
+      {{else}}
+        {{#link-to 'login'}}Login{{/link-to}}
+      {{/if}}
+      <button class="chirp" {{action "toggleComposeModal"}}>Post question</button>
+    </nav>  
+  </div>
+</header>
+{{outlet}}
+
+{{#if showingComposeModal}}
+  {{#modal-dialog translucentOverlay=true close=(action 'toggleComposeModal')}}
+    {{compose-modal text=questionText post=(action 'postQuestions') dismiss=(action 'toggleComposeModal')}}
+  {{/modal-dialog}}
+{{/if}}

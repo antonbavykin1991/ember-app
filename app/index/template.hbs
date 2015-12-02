@@ -1,0 +1,12 @@
+<div class="page-container home-page">
+  <aside class="left">
+  	{{profile-glance user = model.user }}
+  </aside>
+  
+  <!-- New code -->
+  <main>
+ 	  {{questions-list questions=model.questions}}
+  </main>
+</div>
+
+{{outlet}}

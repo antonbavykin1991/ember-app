@@ -1,0 +1,17 @@
+<ul class="card">
+	<li>
+		<img class="avatar" src="{{question.user.image}}" />
+		<div class="info">
+		 	{{question.user.username}}
+		  <time>{{moment-from-now question.createdAt}}</time>
+		  <p>
+		  	<pre>{{question.text}}</pre>
+		  </p>
+		  <p>Answers: {{question.numberOfAnswers}}</p>
+		  {{#if editable}}
+	  		<a href="#" {{action "editQuestion"}}>edit</a>
+	  	{{/if}}
+		</div>
+		{{answers-list answers=question.answers}}
+	</li>
+</ul>

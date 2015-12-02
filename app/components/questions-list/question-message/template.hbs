@@ -1,0 +1,24 @@
+<img class="avatar" src="{{question.user.image}}" />
+<div class="info">
+  <div class="user-name">
+ 	{{question.user.name}}
+  </div>
+  <div class="liquid-question-content question-content" >
+    <pre>{{liquid-bind question.text}}</pre>
+  </div>
+  <div class="question-footer">
+    <ul>
+      <li>created at: <time>{{moment-from-now question.createdAt}}</time></li>
+      <li>answers:&nbsp;<span class="liquid-top-animate">{{liquid-bind question.numberOfAnswers}}</span></li>
+      <li>{{#link-to "question.simple" question.id }} view {{/link-to}}</li>
+      {{#if editable}}
+      <li>
+        <a href="#" {{action "editQuestion"}}>edit</a>
+      </li>
+      <li>
+        <a href="#" {{action "removeQuestion"}}>remove</a>
+      </li>
+      {{/if}}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="page-container home-page">
+  <aside class="left">
+  	{{profile-glance user = model.user }}
+  </aside>
+  
+  <!-- New code -->
+  <main>
+  	{{#if model.question}}
+ 	  	{{questions-list/question-full question=model.question}}
+ 	  	{{answer-form question=model.question}}
+ 	  {{else}}
+ 	  	<h2>404 question not found</h2>
+ 	  {{/if}}
+  </main>
+</div>
+
+{{outlet}}

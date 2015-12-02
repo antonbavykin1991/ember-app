@@ -1,0 +1,40 @@
+<!-- app/user/template.hbs -->
+
+<div class="profile-cover cover-photo"></div>
+
+<div class="stats-container">
+  <div class="page-container">
+    <img class="avatar" src="/images/avatar.jpg" data-profile-image="me" />
+		<!-- The profile stats -->
+		<ul class="profile-stats">
+		  {{#link-to "question.list.index" tagName="li"}}
+		    <h4>All questions</h4>
+		    <p class="liquid-top-animate">{{liquid-bind model.allQuestions.length}}</p>
+		  {{/link-to}}
+		  {{#link-to "question.list.answered" tagName="li"}}
+		    <h4>Answered Questions</h4>
+		    <p class="liquid-top-animate">{{liquid-bind model.answeredQuestions.length}}</p>
+		  {{/link-to}}
+		  {{#link-to "question.list.notanswered" tagName="li"}}
+		    <h4>Not Answered Questions</h4>
+		    <p class="liquid-top-animate">{{liquid-bind model.notAnsweredQuestions.length}}</p>
+		  {{/link-to}}
+		</ul>
+  </div>
+</div>
+
+<div class="page-container user-page">
+	{{#if session.isAuthenticated}}
+	<!-- The profile intro -->
+	<aside>
+	  <h1>{{model.user.username}}</h1>
+	  <p class="description">{{model.user.aboutMe}}</p>
+
+	  <p class="joined">Joined {{chirp.createdAt}}</p>
+	</aside>
+	{{/if}}
+  <main>
+	  {{outlet}}
+	</main>
+
+</div>

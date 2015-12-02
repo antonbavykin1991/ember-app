@@ -1,0 +1,17 @@
+<div>
+	{{#if session.isAuthenticated}}
+	<form {{action "postAnswer" on="submit"}}>
+		
+		{{textarea value=text cols="80" rows="6"}}
+		{{#if showError}}
+		<p>{{errors.text}}<br/></p>
+		{{/if}}
+		<button>Answer</button>
+	</form>
+	{{else}}
+		<div class="no-chirps">
+	    <div class="icon"></div>
+	    <p>You are not {{#link-to "login"}}loggin {{/link-to}}</p>
+	  </div>
+	{{/if}}
+</div>

@@ -1,0 +1,23 @@
+<div class="cover-photo"></div>
+
+<img class="avatar" src="/images/avatar.jpg" data-profile-image="me"/>
+
+{{#if session.isAuthenticated}}
+	{{user.name}}
+	<ul class="profile-stats">
+	  <li>
+	    <h4>Questions</h4>
+	    <p>{{user.numberOfQuestions}}</p>
+	  </li>
+	  <li>
+	    <h4>Answered Q</h4>
+	    <p>{{user.numberOfAnswers}}</p>
+	  </li>
+	</ul>
+{{else}}
+	<ul class="profile-stats">
+	  <li>
+	  	<h4>You are not {{#link-to "login"}}loggin{{/link-to}}</h4>
+	  </li>
+	</ul>
+{{/if}}
